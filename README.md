@@ -1,28 +1,22 @@
 # Project Nexus Documentation
 
+#  Job Board Frontend
+
 ## 🧭 Project Overview
-This mobile application is being developed as part of my journey in the **ALX ProDev Frontend Engineering Program**. The project demonstrates the practical application of modern frontend development tools and concepts, with a focus on **building performant, user-friendly, and scalable mobile solutions** using React Native.
+This mobile application is being developed as part of my journey in the **ProDev Frontend Engineering Program**. The project demonstrates the practical application of modern frontend development tools and concepts, with a focus on **building performant, user-friendly, and scalable mobile solutions** using React Native.
 
 ---
 
-## 🎓 About the ProDev Frontend Engineering Program
-The **ALX ProDev Frontend Engineering Program** is a professional development initiative designed to equip learners with advanced frontend development skills.  
-It focuses on **industry-relevant technologies, design principles, and real-world project experience**, preparing developers to build both **web and mobile applications** that meet modern user and business needs.
-
-### 🧠 Program Highlights
+### 🧠 Project Highlights
 - Hands-on learning through real-world projects.  
 - Mentorship and peer collaboration on modern frontend tools.  
-- Deep dives into web and mobile ecosystems.  
+- Deep dives into mobile ecosystems.  
 - Focus on writing clean, maintainable, and scalable code.
 
 ---
 
-## 🚀 Major Learnings
-
 ### 🧩 Key Technologies Covered
-- **Mobile Development:** React Native, Expo, Native APIs  
-- **Web Development:** HTML5, CSS3, JavaScript (ES6+), React.js, Next.js  
-- **Progressive Web Apps (PWA):** Offline-first design, caching strategies  
+- **Mobile Development:** React Native, Expo, Native APIs   
 - **Styling & UI Frameworks:** TailwindCSS, Styled Components, React Native Paper  
 - **Version Control:** Git & GitHub  
 - **TypeScript:** Strong typing and static analysis  
@@ -62,8 +56,7 @@ It focuses on **industry-relevant technologies, design principles, and real-worl
 - **Use version control (Git) for collaboration and backup.**  
 - **Embrace TypeScript for type safety and maintainability.**  
 - **Follow consistent naming conventions and project structure.**  
-- **Prioritize user experience (UX) and accessibility.**  
-- **Document everything — from setup to deployment.**
+- **Prioritize user experience (UX) and accessibility.**      
 
 ---
 
@@ -73,3 +66,26 @@ It focuses on **industry-relevant technologies, design principles, and real-worl
 - Deploy a production-ready build on Google Play Store.  
 
 ---
+
+# Job Board Backend
+
+## Stack
+Django, Django REST Framework, PostgreSQL, SimpleJWT, drf-spectacular
+
+## Setup (local)
+1. Clone
+2. Create .env with DATABASE_URL, SECRET_KEY, DEBUG
+3. docker-compose up --build
+4. docker-compose exec web python manage.py migrate
+5. docker-compose exec web python manage.py createsuperuser
+6. Open http://localhost:8000/api/docs/
+
+## Running tests
+docker-compose exec web pytest
+
+## Producing Swagger docs
+Open /api/docs/
+
+## Performance
+- Ensure pg_trgm extension enabled: create extension pg_trgm
+- Run provided SQL migration to create tsvector and GIN indexes
