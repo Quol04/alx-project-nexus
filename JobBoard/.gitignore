@@ -41,3 +41,17 @@ app-example
 # generated native folders
 /ios
 /android
+/.idea
+/.vscode/
+.expo-shared/
+# bundler
+.bundle/
+# fastlane
+/fastlane/report.xml
+/fastlane/Preview.html
+/fastlane/screenshots
+/fastlane/test_output   
+# misc
+*.log
+*.lock
+*.swp
