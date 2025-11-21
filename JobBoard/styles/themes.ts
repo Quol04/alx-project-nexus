@@ -13,11 +13,11 @@ export const COLORS = {
 }
 
 export const SPACING = {
-  xsmall: '4px',
-  small: '8px',
-  medium: '16px',
-  large: '24px',
-  xlarge: '32px',
+  xsmall: 10,          // 4 pixels
+  small: 12,           // 8 pixels
+  medium: 18,          // 16 pixels
+  large: 28,           // 24 pixels
+  xlarge: 36,         // 32 pixels
 }
 
 export const BORDER_RADIUS = '4px'
@@ -30,9 +30,9 @@ export const TYPOGRAPHY = {
     title: 24,
   },
   weights: {
-    regular: '400',
-    medium: '500',
-    bold: '700',
+    regular: "400",
+    medium: 500,
+    bold: 700,
   },
 };
 
