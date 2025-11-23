@@ -1,3 +1,4 @@
+import JobDetailsSlot from "@/components/home/Jobdetails/JobDetailsSlot";
 import { Stack } from "expo-router";
 
 
@@ -9,6 +10,7 @@ export default function RootLayout() {
         <Stack.Screen name="OnboardingScreen" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="JobDetails" component={JobDetailsSlot} /> */}
       </Stack>
     // </SafeAreaProvider>
   );

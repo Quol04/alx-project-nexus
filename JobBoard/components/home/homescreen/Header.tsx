@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View , Image} from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import NotificationIcon from "./NotificationIcon";
 
 const Header = ({ name }: { name: string }) => (
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     // padding: 20,
     marginTop: 30,
     marginBottom: 20,
+    marginHorizontal: 16,
   },
   profileContainer: {
     flexDirection: "row",

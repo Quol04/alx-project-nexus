@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import OnboardingSlide from "@/components/common/OnboardingSlide";
-import { onboardingData}  from "@/constants/OnboardingData";
+import { onboardingData}  from "@/constants/onboardingData";
 
 const { width } = Dimensions.get("window");
 

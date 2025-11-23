@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import NotificationModal from "../common/NotificationModal";
+import NotificationModal from "@/components/common/NotificationModal";
 
 type AppNotification = { title: string; desc: string };
 

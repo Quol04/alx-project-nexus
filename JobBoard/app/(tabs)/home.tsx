@@ -1,36 +1,97 @@
-import React from "react";
-import { Text, View , StyleSheet} from "react-native";
+import CategoryItem from "@/components/home/homescreen/CategoryItem";
+import Header from "@/components/home/homescreen/Header";
+import RecentJobCard from "@/components/home/homescreen/RecentJobCard";
+import SearchBar from "@/components/home/homescreen/SearchBar";
+import SectionHeader from "@/components/home/homescreen/SectionHeader";
+import SuggestedJobCard from "@/components/home/homescreen/SuggestedJobCard";
+import JobDetailsSlot from "@/components/home/Jobdetails/JobDetailsSlot";
+import { categories, recentJobs, suggestedJobs } from "@/constants/homeData";
+import React, { useState } from "react";
+import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from "../../components/home/Header";
-import { TYPOGRAPHY,SPACING } from "@/styles/themes";
+import { useNavigation } from "@react-navigation/native";
 
 
-const Home = () => {
+const HomeScreen: React.FC = () => {
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(1);
+  const [showJobSlot, setShowJobSlot] = useState(false);
+
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.container}> 
-      <Header name="Smith"/>
-      <View >
-          <Text style={styles.browseText}>Browse By Category</Text>
+    <SafeAreaView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <Header name="Smith" />
+
+      <SearchBar value={search} onChange={setSearch} />
+
+      {/* CATEGORIES */}
+      <SectionHeader title="Browse By Category" />
+
+      <FlatList
+        data={categories}
+        horizontal
+        keyExtractor={(item) => item.id.toString()}
+        contentContainerStyle={{ paddingLeft: 16 }}
+        renderItem={({ item }) => (
+          <CategoryItem
+            name={item.name}
+            icon={item.icon}
+            selected={selectedCategory === item.id}
+            onPress={() => setSelectedCategory(item.id)}
+          />
+        )}
+        showsHorizontalScrollIndicator={false}
+      />
+
+      {/* SUGGESTED JOBS */}
+      <SectionHeader title="Suggested Jobs" text="See All" />
+
+      <FlatList
+        horizontal
+        data={suggestedJobs}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <SuggestedJobCard
+            company={item.company}
+            role={item.role}
+            salary={item.salary}
+            tags={item.tags}
+            image={item.image}
+            onApply={() => setShowJobSlot(true)}
+          />
+        )}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingLeft: 16 }}
+      />
+      {showJobSlot && <JobDetailsSlot visible={showJobSlot} onClose={() => setShowJobSlot(false)} />}
+  
+
+      {/* RECENT JOBS */}
+      <SectionHeader title="Recent Jobs" text="See All" />
+
+      <View style={{ marginBottom: 40 }}>
+        {recentJobs.map((job) => (
+          <RecentJobCard
+            key={job.id}
+            role={job.role}
+            company={job.company}
+            location={job.location}
+            image={job.image}
+          />
+        ))}
       </View>
-
-        
-     </SafeAreaView>
+    </ScrollView>
+    </SafeAreaView>
   );
-}   
+};
 
-export default Home;
+export default HomeScreen;
 
-const styles = StyleSheet.create({
+const styles= StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: SPACING.small,
-    marginHorizontal: SPACING.large,
-  },
-  browseText: {
-    fontSize: TYPOGRAPHY.sizes.title,
-    // fontWeight: TYPOGRAPHY.weights.regular,
-    color: "#000000",
-    marginBottom: SPACING.medium,
-    fontWeight: "600",
+    // marginVertical: SPACING.small,
+    // marginHorizontal: SPACING.small,
   },
 });
