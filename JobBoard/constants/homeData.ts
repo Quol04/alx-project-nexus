@@ -37,6 +37,22 @@ export const suggestedJobs: SuggestedJob[] = [
     tags: ["Design", "Full Time", "In House"],
     image: "file:///mnt/data/alx-mobile-home.png"
   },
+   {
+    id: 2,
+    company: "Microsoft",
+    role: "Lead Product Designer",
+    salary: "$190,000/Year",
+    tags: ["Design", "Full Time", "In House"],
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
+      {
+    id: 3,
+    company: "Adobe",
+    role: "Software Engineer",
+    salary: "$198,000/Year",
+    tags: ["Design", "Full Time", "In House"],
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
 ];
 
 export const recentJobs: RecentJob[] = [
@@ -45,6 +61,34 @@ export const recentJobs: RecentJob[] = [
     role: "Sr. Product Designer",
     company: "Apple",
     location: "United States",
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
+    {
+    id: 2,
+    role: "Sr. UI/UX Designer",
+    company: "Amplitude",
+    location: "Singapore",
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
+   {
+    id: 3,
+    role: "Software Engineer",
+    company: "Adobe",
+    location: "New York, USA",
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
+   {
+    id: 4,
+    role: "Lead Digital Marketer",
+    company: "Wings",
+    location: "Anywhere, Remote",
+    image: "file:///mnt/data/alx-mobile-home.png"
+  },
+   {
+    id: 5,
+    role: "Full Stack Developer",
+    company: "Airbnb",
+    location: "United Kingdom",
     image: "file:///mnt/data/alx-mobile-home.png"
   },
 ];
