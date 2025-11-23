@@ -1,5 +1,3 @@
-
-
 export interface OnboardingItem {
   id: number;
   title: string;
