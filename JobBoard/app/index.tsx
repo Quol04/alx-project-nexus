@@ -1,25 +1,25 @@
-import { Link } from "expo-router";
-import React from "react";
-import { Text, View } from "react-native";
-// import { useRouter } from "expo-router";
+import React, { useEffect } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-
+import  {useRouter}  from "expo-router";
 
 export default function Index() {
-  // const router = useRouter();
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const { width } = Dimensions.get("window");
+
+  const router = useRouter();
+  useEffect(() => {
+    // Simulate a loading process or check for authentication status
+    const timer = setTimeout(() => {
+      // Navigate to the Onboarding screen after 2 seconds
+      router.replace("/OnboardingScreen");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+ 
 
   return (
-    <SafeAreaView className="flex-1">
-      <View >
-        <Text className="text-red-300 text-xl font-bold">
-          Welcome to Nativewind!
-        </Text>
-        <Link href="/(tabs)/home">
-          <Text className="text-blue-500 text-lg mt-4">Go to Home Tab</Text>
-        </Link>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.logo}>
+        <Text style={styles.logoText}>Jobko</Text>
       </View>
       
     </SafeAreaView>
@@ -27,4 +27,20 @@ export default function Index() {
 }
 
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#7C66FF",
+    },
+  logo: {
+    justifyContent: "center",
+    alignSelf: "center",
+  
+  },
+  logoText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});
