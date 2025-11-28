@@ -15,10 +15,12 @@ import EmptyApplications from "@/components/applications/EmptyApplication";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 const ApplicationsScreen = () => {
   const navigation: any = useNavigation();
   const [loading, setLoading] = useState(true);
   const [applications, setApplications] = useState<JobApplication[]>([]);
+
 
   useEffect(() => {
     const load = async () => {
@@ -50,7 +52,10 @@ const ApplicationsScreen = () => {
           <ApplicationCard
             key={item.id}
             item={item}
-            onPress={() => navigation.navigate("ApplicationDetails", { item })}
+            onPress={() => 
+
+              navigation.navigate("ApplicationDetails", { item })
+            }
           />
         ))
       )}

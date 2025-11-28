@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { JobApplication } from "@/api/application";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   item: JobApplication;
@@ -14,6 +15,8 @@ const statusColors = {
 };
 
 const ApplicationCard = ({ item, onPress }: Props) => {
+  
+  
   return (
     <View style={styles.card}>
       <View style={styles.row}>
