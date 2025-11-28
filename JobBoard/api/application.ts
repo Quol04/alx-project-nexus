@@ -42,6 +42,15 @@ export const fetchApplications = async (): Promise<JobApplication[]> => {
           location: "United States",
           status: "Canceled",
         },
+         {
+          id: "4",
+          title: "Senior UI/UX Designer",
+          company: "Microsoft",
+          logo: "https://logo.clearbit.com/microsoft.com",
+          salary: "6K/month",
+          location: "United States",
+          status: "Delivered",
+        },
       ]);
     }, 900);
   });
