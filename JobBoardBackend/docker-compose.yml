@@ -70,12 +70,14 @@ services:
       - redis
 
   flower:
-    image: mher/flower
+    build: .
+    command: celery -A core flower --port=5555
     ports:
       - "5555:5555"
-    command: ["flower", "--broker=amqp://rabbitmq:5672/"]
     depends_on:
-      - rabbitmq
+      - redis
+      - celery
+
 
   nginx:
     image: nginx:stable

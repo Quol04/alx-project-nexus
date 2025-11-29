@@ -1,5 +1,7 @@
-from django.http import JsonResponse
+from django.http import HttpResponse
 
 
 def home_view(request):
-    return JsonResponse({"message": "Welcome to the Job Board API"})
+    return HttpResponse("Welcome to the Job Board API!")
+
+    
