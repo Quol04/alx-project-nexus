@@ -8,5 +8,8 @@ export default function ApplicationDetailsRoute() {
   // Accept either an item object or an id param
   const id = params?.item?.id ?? params?.id;
 
-  return <ApplicationDetailsScreen route={{ params: { id } }} />;
+  return (
+
+     <ApplicationDetailsScreen route={{ params: { id } }} />
+  );
 }

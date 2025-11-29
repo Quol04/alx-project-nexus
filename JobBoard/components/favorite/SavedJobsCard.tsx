@@ -11,11 +11,13 @@ type Props = {
   tags: string[];
   logo: any;
   onPress: () => void;
+  onTap: () => void;
 };
 
 const SavedJobCard = ({
-  title, company, location, salary, tags, logo, onPress
+  title, company, location, salary, tags, logo, onPress, onTap
 }: Props) => {
+
   return (
     <View style={styles.card}>
     
@@ -25,8 +27,9 @@ const SavedJobCard = ({
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.company}>{company}</Text>
         </View>
-
-        <Ionicons name="bookmark" size={22} color="#3B82F6" />
+        <TouchableOpacity style={styles.bookmark} onPress={onTap}>
+           <Ionicons name="bookmark" size={22} color="#3B82F6" />
+        </TouchableOpacity>
       </View>
 
       <View style={styles.divider} />
@@ -79,6 +82,13 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#6b7280",
     marginTop: 3,
+  },
+  bookmark: {
+    // padding: 8,
+
+    backgroundColor: "#f0eff4ff",
+    color: "#7C66FF",
+    // borderRadius: 8,
   },
   divider: {
     height: 1,

@@ -17,6 +17,7 @@ const SavedJobsScreen = ({ navigation }: any) => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const [bookmark,setBookmark] = useState(false);
 
   const loadJobs = async () => {
     if (loading || !hasMore) return;
@@ -57,6 +58,7 @@ const SavedJobsScreen = ({ navigation }: any) => {
             onPress={() =>
               navigation.navigate("JobDetails", { jobId: item.id })
             }
+            onTap={() => setBookmark(!bookmark)}
           />
         )}
         onEndReached={loadJobs}

@@ -8,8 +8,11 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { getApplicationDetails } from "@/services/applicationApi";
-import { JobApplicationDetails } from "@/constants/applications";
+// import { JobApplicationDetails } from "@/constants/applications";
+import {applicationData,JobApplicationDetails} from "@/constants/applicationData";
+
 import TimelineItem from "./TimeLineItem";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ApplicationDetailsScreen = ({ route }: any) => {
   const { id } = route.params;
@@ -36,35 +39,37 @@ const ApplicationDetailsScreen = ({ route }: any) => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
-          <Image source={{ uri: details.logo }} style={styles.logo} />
-          <View>
-            <Text style={styles.role}>{details.role}</Text>
-            <Text style={styles.company}>{details.company}</Text>
-            <Text style={styles.meta}>
-              {details.salary} • {details.location}
-            </Text>
+    <SafeAreaView style={styles.container}>
+        <ScrollView >
+          <View style={styles.header}>
+            <View style={styles.headerContent}>
+              <Image source={{ uri: details.logo }} style={styles.logo} />
+              <View>
+                <Text style={styles.role}>{details.role}</Text>
+                <Text style={styles.company}>{details.company}</Text>
+                <Text style={styles.meta}>
+                  {details.salary} • {details.location}
+                </Text>
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
 
-      <View style={styles.timelineBox}>
-        <Text style={styles.title}>Track Application</Text>
+          <View style={styles.timelineBox}>
+            <Text style={styles.title}>Track Application</Text>
 
-        {details.steps.map((step, index) => (
-          <TimelineItem
-            key={step.id}
-            title={step.title}
-            date={step.date}
-            time={step.time}
-            completed={step.completed}
-            isLast={index === details.steps.length - 1}
-          />
-        ))}
-      </View>
-    </ScrollView>
+            {details.steps.map((step, index) => (
+              <TimelineItem
+                key={step.id}
+                title={step.title}
+                date={step.date}
+                time={step.time}
+                completed={step.completed}
+                isLast={index === details.steps.length - 1}
+              />
+            ))}
+          </View>
+        </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -73,7 +78,7 @@ export default ApplicationDetailsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F7F9FC",
+    // backgroundColor: "#F7F9FC",
   },
   loaderWrapper: {
     flex: 1,

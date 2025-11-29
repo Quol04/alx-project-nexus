@@ -11,9 +11,9 @@ interface Props {
 const ProfileHeader: React.FC<Props> = ({ title, onBack, onOptions }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onBack}>
+      {/* <TouchableOpacity onPress={onBack}>
         <Ionicons name="chevron-back" size={26} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <Text style={styles.title}>{title}</Text>
 
@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
+    justifyContent: "center",
+    textAlign: "center",
     fontSize: 20,
     fontWeight: "600",
   },

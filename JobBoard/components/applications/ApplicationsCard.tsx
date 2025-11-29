@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { JobApplication } from "@/api/application";
+// import { JobApplication } from "@/api/application";
+import { JobApplicationDetails } from "@/constants/applicationData";
+
 import { useNavigation } from "@react-navigation/native";
 
 interface Props {
-  item: JobApplication;
+  item: JobApplicationDetails;
   onPress: () => void;
 }
 
@@ -23,7 +25,7 @@ const ApplicationCard = ({ item, onPress }: Props) => {
         <Image source={{ uri: item.logo }} style={styles.logo} />
 
         <View style={{ flex: 1 }}>
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.role}>{item.role}</Text>
           <Text style={styles.company}>{item.company}</Text>
 
           <Text style={styles.meta}>
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 12,
   },
-  title: {
+  role: {
     fontSize: 16,
     fontWeight: "600",
   },

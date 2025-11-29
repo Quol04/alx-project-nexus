@@ -14,7 +14,9 @@ const TimelineItem: React.FC<Props> = ({ title, date, time, completed, isLast })
     <View style={styles.container}>
       <View style={styles.leftColumn}>
         <View style={[styles.circle, completed ? styles.completedCircle : styles.pendingCircle]} />
-        {!isLast && <View style={styles.line} />}
+        {/* {!isLast && <View style={styles.line} />} */}
+        <View style={styles.line} />
+        
       </View>
 
       <View style={styles.content}>
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
   leftColumn: {
     alignItems: "center",
     width: 40,
+
   },
   circle: {
     width: 18,
@@ -59,7 +62,9 @@ const styles = StyleSheet.create({
   },
   line: {
     width: 2,
-    height: "100%",
+    // height: "100%",
+    flex: 1,
+    height: 30,
     backgroundColor: "#2ecc71",
     marginTop: 4,
   },

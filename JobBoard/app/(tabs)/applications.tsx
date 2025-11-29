@@ -9,8 +9,9 @@ import {
 import ApplicationCard from "@/components/applications/ApplicationsCard";
 import {
   fetchApplications,
-  JobApplication,
-} from "@/api/application";
+  JobApplicationDetails,
+} from "@/constants/applicationData";
+
 import EmptyApplications from "@/components/applications/EmptyApplication";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -19,7 +20,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const ApplicationsScreen = () => {
   const navigation: any = useNavigation();
   const [loading, setLoading] = useState(true);
-  const [applications, setApplications] = useState<JobApplication[]>([]);
+  const [applications, setApplications] = useState<JobApplicationDetails[]>([]);
 
 
   useEffect(() => {
