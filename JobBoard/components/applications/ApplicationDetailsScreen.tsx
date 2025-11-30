@@ -1,24 +1,27 @@
+import { getApplicationDetails } from "@/services/applicationApi";
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
+  ActivityIndicator,
   Image,
   ScrollView,
   StyleSheet,
-  ActivityIndicator,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { getApplicationDetails } from "@/services/applicationApi";
 // import { JobApplicationDetails } from "@/constants/applications";
-import {applicationData,JobApplicationDetails} from "@/constants/applicationData";
+import { JobApplicationDetails } from "@/constants/applicationData";
 
-import TimelineItem from "./TimeLineItem";
+import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import TimelineItem from "./TimeLineItem";
 
 const ApplicationDetailsScreen = ({ route }: any) => {
   const { id } = route.params;
 
   const [details, setDetails] = useState<JobApplicationDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigation: any = useNavigation();
 
   useEffect(() => {
     fetchData();
@@ -68,7 +71,17 @@ const ApplicationDetailsScreen = ({ route }: any) => {
               />
             ))}
           </View>
+          
         </ScrollView>
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => navigation.goBack()}
+            accessibilityRole="button"
+          >
+            <Text style={styles.closeButtonText}>Close</Text>
+          </TouchableOpacity>
+        </View>
     </SafeAreaView>
   );
 };
@@ -127,5 +140,21 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "700",
     marginBottom: 18,
+  },
+  footer: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: "#fff",
+  },
+  closeButton: {
+    backgroundColor: "#6C63FF",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+  },
+  closeButtonText: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 16,
   },
 });

@@ -1,21 +1,21 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 
-interface JobHeaderProps {
-  logo: any;
-  title: string;
-  location: string;
-  tags: string[];
+interface JobDetailHeaderProps {
+  logo: ImageSourcePropType;
+  role?: string;
+  location?: string;
+  tags?: string[];
 }
 
-const JobHeader: React.FC<JobHeaderProps> = ({ logo, title, location, tags }) => {
+const JobDetailHeader: React.FC<JobDetailHeaderProps> = ({ logo, role, location, tags = [] }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerCard}>
         <Image source={logo} style={styles.logo} />
 
         <View style={styles.texts}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.role}>{role}</Text>
           <Text style={styles.location}>{location}</Text>
 
           <View style={styles.tagRow}>
@@ -31,10 +31,12 @@ const JobHeader: React.FC<JobHeaderProps> = ({ logo, title, location, tags }) =>
   );
 };
 
-export default JobHeader;
+export default JobDetailHeader;
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 20 },
+  container: {
+     paddingHorizontal: 20 
+    },
   headerCard: {
     backgroundColor: "#6C63FF",
     padding: 20,
@@ -48,10 +50,23 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 15,
   },
-  texts: { flex: 1 },
-  title: { fontSize: 18, fontWeight: "700", color: "#fff" },
-  location: { fontSize: 14, color: "#EEE", marginVertical: 5 },
-  tagRow: { flexDirection: "row", marginTop: 10 },
+  texts: { 
+    flex: 1 
+  },
+  role: { 
+    fontSize: 18, 
+    fontWeight: "700", 
+    color: "#fff" 
+  },
+  location: { 
+    fontSize: 14, 
+    color: "#EEE", 
+    marginVertical: 5 
+  },
+  tagRow: { 
+    flexDirection: "row", 
+    marginTop: 10
+   },
   tag: {
     backgroundColor: "#ffffff33",
     paddingHorizontal: 12,
@@ -59,5 +74,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 10,
   },
-  tagText: { color: "#fff", fontWeight: "600" },
+  tagText: { 
+    color: "#fff", 
+    fontWeight: "600" ,
+  },
 });
