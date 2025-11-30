@@ -1,25 +1,25 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 interface JobDescriptionProps {
-  description: string;
-  requirements: string[];
+  description?: string | null;
+  requirements?: string[] | null;
 }
 
 const JobDescription: React.FC<JobDescriptionProps> = ({
-  description,
-  requirements,
+  description = "",
+  requirements = [],
 }) => {
+  const reqs = Array.isArray(requirements) ? requirements : [String(requirements || "")];
+
   return (
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>About The Role</Text>
       <Text style={styles.description}>{description}</Text>
 
-      <Text style={[styles.sectionTitle, { marginTop: 20 }]}>
-        Requirements
-      </Text>
+      <Text style={[styles.sectionTitle, { marginTop: 20 }]}>Requirements</Text>
 
-      {requirements.map((item, index) => (
+      {reqs.map((item, index) => (
         <View key={index} style={styles.bulletRow}>
           <View style={styles.dot} />
           <Text style={styles.bulletText}>{item}</Text>

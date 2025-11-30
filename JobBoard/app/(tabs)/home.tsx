@@ -1,3 +1,4 @@
+import CallToAction from "@/components/home/homescreen/CallToAction";
 import CategoryItem from "@/components/home/homescreen/CategoryItem";
 import Header from "@/components/home/homescreen/Header";
 import RecentJobCard from "@/components/home/homescreen/RecentJobCard";
@@ -5,19 +6,19 @@ import SearchBar from "@/components/home/homescreen/SearchBar";
 import SectionHeader from "@/components/home/homescreen/SectionHeader";
 import SuggestedJobCard from "@/components/home/homescreen/SuggestedJobCard";
 import JobDetailsSlot from "@/components/home/Jobdetails/JobDetailsSlot";
-import { categories, recentJobs} from "@/constants/homeData";
-import {applicationData} from "@/constants/applicationData";
-import React, { useState } from "react";
-import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { applicationData, JobApplicationDetails } from "@/constants/applicationData";
+import { categories, recentJobs } from "@/constants/homeData";
 import { useNavigation } from "@react-navigation/native";
-import CallToAction from "@/components/home/homescreen/CallToAction";
+import React, { useState } from "react";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const HomeScreen: React.FC = () => {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(1);
   const [showJobSlot, setShowJobSlot] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<JobApplicationDetails | null>(null);
 
   const navigation = useNavigation();
   return (
@@ -61,13 +62,25 @@ const HomeScreen: React.FC = () => {
                 salary={item.salary}
                 tags={item.tags}
                 image={item.logo}
-                onApply={() => setShowJobSlot(true)}
+                  onApply={() => {
+                    setSelectedJob(item);
+                    setShowJobSlot(true);
+                  }}
               />
             )}
             showsHorizontalScrollIndicator={false}
             // contentContainerStyle={{ paddingLeft: 16 }}
           />
-          {showJobSlot && <JobDetailsSlot visible={showJobSlot} onClose={() => setShowJobSlot(false)} />}
+          {showJobSlot && (
+            <JobDetailsSlot
+              visible={showJobSlot}
+              onClose={() => {
+                setShowJobSlot(false);
+                setSelectedJob(null);
+              }}
+              job={selectedJob}
+            />
+          )}
       
 
           {/* RECENT JOBS */}

@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-// import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 
 interface CompanyItem {
   icon: any;
