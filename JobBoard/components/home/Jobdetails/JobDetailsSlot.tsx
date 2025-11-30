@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   container: {
-    maxHeight: "92%",
+    maxHeight: "100%",
     backgroundColor: "#fff",
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,

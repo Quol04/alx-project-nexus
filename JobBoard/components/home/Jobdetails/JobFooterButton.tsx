@@ -23,5 +23,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: "center",
   },
-  text: { color: "#fff", fontSize: 16, fontWeight: "700" },
+  text: { 
+    color: "#fff", 
+    fontSize: 16, 
+    fontWeight: "700" 
+  },
 });

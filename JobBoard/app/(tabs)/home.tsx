@@ -5,7 +5,8 @@ import SearchBar from "@/components/home/homescreen/SearchBar";
 import SectionHeader from "@/components/home/homescreen/SectionHeader";
 import SuggestedJobCard from "@/components/home/homescreen/SuggestedJobCard";
 import JobDetailsSlot from "@/components/home/Jobdetails/JobDetailsSlot";
-import { categories, recentJobs, suggestedJobs } from "@/constants/homeData";
+import { categories, recentJobs} from "@/constants/homeData";
+import {applicationData} from "@/constants/applicationData";
 import React, { useState } from "react";
 import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -51,7 +52,7 @@ const HomeScreen: React.FC = () => {
 
           <FlatList
             horizontal
-            data={suggestedJobs}
+            data={applicationData}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <SuggestedJobCard
@@ -59,12 +60,12 @@ const HomeScreen: React.FC = () => {
                 role={item.role}
                 salary={item.salary}
                 tags={item.tags}
-                image={item.image}
+                image={item.logo}
                 onApply={() => setShowJobSlot(true)}
               />
             )}
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingLeft: 16 }}
+            // contentContainerStyle={{ paddingLeft: 16 }}
           />
           {showJobSlot && <JobDetailsSlot visible={showJobSlot} onClose={() => setShowJobSlot(false)} />}
       

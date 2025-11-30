@@ -1,3 +1,5 @@
+import { applicationData } from "./applicationData";
+
 export interface Category {
   id: number;
   name: string;
@@ -28,32 +30,43 @@ export const categories: Category[] = [
   { id: 4, name: "Freelance", icon: "user" },
 ];
 
-export const suggestedJobs: SuggestedJob[] = [
-  {
-    id: 1,
-    company: "Google LLC",
-    role: "Sr. UX Designer",
-    salary: "$195,000/Year",
-    tags: ["Design", "Full Time", "In House"],
-    image: "file:///mnt/data/alx-mobile-home.png"
-  },
-   {
-    id: 2,
-    company: "Microsoft",
-    role: "Lead Product Designer",
-    salary: "$190,000/Year",
-    tags: ["Design", "Full Time", "In House"],
-    image: "file:///mnt/data/alx-mobile-home.png"
-  },
-      {
-    id: 3,
-    company: "Adobe",
-    role: "Software Engineer",
-    salary: "$198,000/Year",
-    tags: ["Design", "Full Time", "In House"],
-    image: "file:///mnt/data/alx-mobile-home.png"
-  },
-];
+// export interface JobApplicationDetails {
+//   id: string;
+//   role: string;
+//   company: string;
+//   salary: string;
+//   location: string;
+//   logo: string;
+//   steps: ApplicationStep[];
+//   status: ApplicationStatus;
+// }
+
+// export const suggestedJobs: SuggestedJob[] = [ 
+  // {
+  //   id: 1,
+  //   company: "Google LLC",
+  //   role: "Sr. UX Designer",
+  //   salary: "$195,000/Year",
+  //   tags: ["Design", "Full Time", "In House"],
+  //   image: "file:///mnt/data/alx-mobile-home.png"
+  // },
+  //  {
+  //   id: 2,
+  //   company: "Microsoft",
+  //   role: "Lead Product Designer",
+  //   salary: "$190,000/Year",
+  //   tags: ["Design", "Full Time", "In House"],
+  //   image: "file:///mnt/data/alx-mobile-home.png"
+  // },
+  //     {
+  //   id: 3,
+  //   company: "Adobe",
+  //   role: "Software Engineer",
+  //   salary: "$198,000/Year",
+  //   tags: ["Design", "Full Time", "In House"],
+  //   image: "file:///mnt/data/alx-mobile-home.png"
+  // },
+// ];
 
 export const recentJobs: RecentJob[] = [
   {

@@ -32,10 +32,24 @@ const JobDescription: React.FC<JobDescriptionProps> = ({
 export default JobDescription;
 
 const styles = StyleSheet.create({
-  container: { paddingHorizontal: 20 },
-  sectionTitle: { fontSize: 16, fontWeight: "700", marginBottom: 8 },
-  description: { lineHeight: 22, fontSize: 14, color: "#444" },
-  bulletRow: { flexDirection: "row", alignItems: "center", marginVertical: 6 },
+  container: { 
+    paddingHorizontal: 20 
+  },
+  sectionTitle: { 
+    fontSize: 16, 
+    fontWeight: "700", 
+    marginBottom: 8 
+  },
+  description: { 
+    lineHeight: 22, 
+    fontSize: 14, 
+    color: "#444"
+   },
+  bulletRow: { 
+    flexDirection: "row", 
+    alignItems: "center", 
+    marginVertical: 6 
+  },
   dot: {
     width: 8,
     height: 8,
@@ -43,5 +57,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginRight: 10,
   },
-  bulletText: { fontSize: 14, color: "#555", flex: 1 },
+  bulletText: { 
+    fontSize: 14, 
+    color: "#555",
+    flex: 1 },
 });

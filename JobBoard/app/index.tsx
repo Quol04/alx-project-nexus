@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import  {useRouter}  from "expo-router";
 
@@ -21,6 +21,11 @@ export default function Index() {
       <View style={styles.logo}>
         <Text style={styles.logoText}>Jobko</Text>
       </View>
+      <View>
+        <ActivityIndicator size="large" color="#fff" style={{ marginBottom: 50 }} />
+      {/* <Text style={{color: "#fff", textAlign: "center", marginBottom: 20}}>Loading...</Text> */}
+
+      </View>
       
     </SafeAreaView>
   );
@@ -35,12 +40,16 @@ const styles = StyleSheet.create({
   logo: {
     justifyContent: "center",
     alignSelf: "center",
-  
+    flex: 1,
+    // justifyContent: "center",
+    alignItems: "center",
+
   },
   logoText: {
     color: "#fff",
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+
   },
 });

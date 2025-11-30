@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+// import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
 
 interface CompanyItem {
   icon: any;
@@ -52,5 +52,8 @@ const styles = StyleSheet.create({
     fontSize: 14, 
     color: "#444" 
 },
-  value: { fontSize: 14, fontWeight: "600" },
+  value: { 
+    fontSize: 14, 
+    fontWeight: "600"
+   },
 });
