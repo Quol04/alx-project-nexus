@@ -4,13 +4,13 @@ services:
     container_name: jobboard_django
     command: >
       sh -c "python manage.py collectstatic --noinput &&
-             gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3"
+             gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 120 --worker-class gevent"
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
       - media_volume:/app/media
     env_file:
-      - /.env
+      - .env
     depends_on:
       - postgres
       - redis
@@ -24,7 +24,7 @@ services:
     volumes:
       - .:/app
     env_file:
-      - /.env
+      - .env
     depends_on:
       - django
       - redis
@@ -37,7 +37,7 @@ services:
     volumes:
       - .:/app
     env_file:
-      - /.env
+      - .env
     depends_on:
       - django
       - redis
@@ -51,7 +51,7 @@ services:
     ports:
       - "5555:5555"
     env_file:
-      - /.env
+      - .env
     depends_on:
       - redis
       - django
@@ -61,7 +61,7 @@ services:
     image: postgres:15
     container_name: jobboard_postgres
     env_file:
-      - /.env
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
